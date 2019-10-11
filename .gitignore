@@ -1,0 +1,4 @@
+/node_modules
+*sensor_data.*
+audit.json
+.env
