@@ -14,6 +14,7 @@
 
    ```bash
    $ git clone https://github.com/irpl/watermon.git
+   $ cd watermon
    $ npm i
    ```
 
