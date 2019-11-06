@@ -1,36 +1,33 @@
 # WaterMonitor Listener
 
-## Setup
+1. Set the server to operate in the appropriate timezone
 
-1. Set server timezone to operate in Jamaica time
    Ubuntu/Debian:
 
    ```bash
-   sudo dpkg-reconfigure tzdata
+   $ sudo dpkg-reconfigure tzdata
    # Select America
    # Select Jamaica
    ```
 
-# WaterMonitor Alert Bot
+2. Clone the repository and install the depnedencies win `npm`.
 
-## What it do
+   ```bash
+   $ git clone https://github.com/irpl/watermon.git
+   $ npm i
+   ```
 
-<!-- TODO Finish writing this -->
+3. The module attached to the water quality sensor should be configured to send data to the public IP address of the server that WaterMon is installed and port 3020.
 
-## Initialisation
+   The poer that WaterMon listens on can be changed by setting the `WATERMON_LISTENER_PORT` environment variable.
 
-The application requires that two environment variables be set. They are `WATERMON_BOT_ADMIN_CHAT_ID` and `WATERMON_BOT_TOKEN`.
+<!-- TODO -->
+<!-- Talk about using telegram channels an alert channel -->
+<!--
+login under your account at web version of Telegram : https://web.telegram.org
 
-1. The bot's API token can be retrieved from the bot's owner. This should be set as the `WATERMON_BOT_TOKEN` environment variable.
+Find your channel. See to your url, it should be like https://web.telegram.org/#/im?p=c1055587116_11052224402541910257
 
-2. Use the `/admin` command to send the Telegram chatID to the application, it should be used to get the value for `WATERMON_BOT_ADMIN_CHAT_ID`. The chatID will be printed in the application's stdout stream.
-
-   This chatID is to be set as the `WATERMON_BOT_ADMIN_CHAT_ID` environment variable.
-
-   The application's designated admin will receive notifications, via Telegram, of the chatIDs of groups that should receive alerts from Grafana.
-
-   Grafana alerts are configured at `http://<grafana_url>/alerting/notifications`.
-
-## Usage
-
-Once this application is deployed, it may be accessed by interacting with the bot, on telegram, found at http://t.me/watermon_alert_bot.
+Grab "1055587116" from it, and add "-100" as a prefix.
+So your channel id will be "-1001055587116".
+ -->

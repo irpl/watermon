@@ -1,26 +1,6 @@
 const express = require("express");
 const log4js = require("log4js");
-const Telegraf = require("telegraf");
 require("dotenv").config();
-
-// * TELEGRAM BOT
-const bot = new Telegraf(process.env.WATERMON_BOT_TOKEN);
-
-bot.command("start", ctx => {
-  console.log(ctx.chat.id);
-});
-
-bot.command("group", ctx => {
-  ctx.telegram
-    .sendMessage(process.env.WATERMON_BOT_ADMIN_CHAT_ID, `${ctx.chat.id}`)
-    .then(message =>
-      ctx.reply(
-        "The chat ID of this chat has been sent to the WaterMon admin. It will be used to configure Grafana's alert channel."
-      )
-    );
-});
-bot.launch();
-// * /TELEGRAM BOT
 
 // * FILE LOGGER
 log4js.configure({
